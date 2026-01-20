@@ -1,0 +1,12 @@
+{
+  "projectName": "Open Source OS Linux Basics",
+  "category": "Open Source Operating Systems",
+  "author": "shima Goodarzi",
+  "studentID": "2320165018",
+  "version": "1.0.0",
+  "description": "Linux fundamentals and automated monitoring script",
+  "requirements": {
+    "os": "Ubuntu 22.04",
+    "language": "Bash"
+  }
+}
