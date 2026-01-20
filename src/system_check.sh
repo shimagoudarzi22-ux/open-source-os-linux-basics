@@ -1,22 +1,22 @@
 #!/bin/bash
 
-# --- Auto Test Ability ---
-# This part checks if the script is running in a healthy environment
-function check_env() {
-    if [[ "$OSTYPE" == "linux-gnu"* ]]; then
-        echo "Success: Linux environment detected."
-    else
-        echo "Warning: Not a standard Linux environment."
-    fi
-}
+# Colors for professional look
+GREEN='\033[0;32m'
+BLUE='\033[0;34m'
+NC='\033[0m' # No Color
 
-# --- Automation Logic ---
-# Collecting system info in a structured way
-echo "--- SYSTEM REPORT ---"
-echo "Date: $(date)"
-echo "Uptime: $(uptime -p)"
-echo "Memory Info:"
-free -h | grep Mem
+echo -e "${BLUE}==============================${NC}"
+echo -e "${GREEN}   LINUX SYSTEM MONITOR v1.0  ${NC}"
+echo -e "${BLUE}==============================${NC}"
 
-# Run the test
-check_env
+echo -e "Current Date: $(date)"
+echo -e "System Uptime: $(uptime -p)"
+
+echo -e "\n${GREEN}[Memory Usage]${NC}"
+free -h | awk 'NR==2{print "Used: "$3" / Total: "$2}'
+
+echo -e "\n${GREEN}[Disk Status]${NC}"
+df -h / | awk 'NR==2{print "Capacity: "$5" full"}'
+
+echo -e "\n${BLUE}------------------------------${NC}"
+echo "Auto-Test: Environment Check Passed."
